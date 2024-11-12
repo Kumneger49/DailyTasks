@@ -1,0 +1,46 @@
+.tasks-list{
+    list-style-type: none;
+    background-color: orange;
+    width: 60%;
+    margin-inline: auto;
+    border-radius: 10px;
+}
+
+.tasks-element{
+    /* background-color: yellow; */
+    margin: 10px;
+    /* margin-right:  100px; */
+    /* margin-inline: auto; */
+    /* width: 50%; */
+    height: 40px;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.edit-delete{
+    display: flex;
+    /* background-color: bisque; */
+    gap: 2rem;
+    /* margin-inline: auto; */
+    margin-right: 10px;
+    align-items: center;
+    justify-content: right;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.edit{
+    background-color: yellow;
+    padding-block: 3px;
+    padding-inline: 10px;
+    cursor: pointer;
+}
+
+.delete{
+    background-color: red; 
+    padding-block: 3px;
+    padding-inline: 10px;
+    cursor: pointer;
+}
+
