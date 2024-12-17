@@ -10,16 +10,17 @@ function App() {
   const [userExist, setUserExist] = useState(true)
   const [passwordCorrect, setPasswordCorrect] = useState(true)
   const [newUser, setNewUser]= useState({})
-   
-
+  
   const users=[
     {
-        name: "a",
+        name: "ken",
         password: 1
+    },
+    {
+        name: "mark",
+        password: 2
     }
     ]
-
- 
 
   const handleLogin = () => {
     setAuthenticated(true)
@@ -45,7 +46,6 @@ function App() {
       setPasswordCorrect(true)
       }
       else{
-        console.log("Error the password is wrong")
         setPasswordCorrect(false)
         setUserExist(true)
       }

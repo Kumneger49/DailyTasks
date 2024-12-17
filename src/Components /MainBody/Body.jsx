@@ -15,7 +15,7 @@ const Body=props=>{
    if(authenticated){
    return (
    <div className="body">
-        <h1 className="header-text"><h2>Welcome <span style={{color: "green"}}>{user}</span></h2>Tasks are ordered by the the time you wanted them to do:</h1>
+        <h1 className="header-text"><h2>Welcome <span style={{color: "green"}}>{user.replace(/\b\w/g, char=>char.toUpperCase())}</span></h2>Tasks are ordered by the the time you wanted them to do:</h1>
         <Tasks/>
    </div> 
    )

@@ -6,7 +6,6 @@ import "./Navigation.css"
 const Navigation=props=>{
  
     const {authenticated, handleLogin, handleLogout, handleShowInput, showInput}=props;
-    console.log("Navigation rendering, showInput:", showInput); //  for debugging
 
     if(authenticated===true){
         return(
