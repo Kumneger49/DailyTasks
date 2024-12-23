@@ -1,0 +1,46 @@
+
+.main-navigation-body{
+    background-color: red;;
+}
+
+
+.main-navigation{
+    background-color: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    height: 50px;
+    margin: 0;
+    padding-block: 10px;
+}
+
+.brand {
+    /* background-color: green; */
+    margin-inline: 10px;
+    cursor: pointer;
+}
+
+.buttons-class{
+    /* width: 100px; */
+    height: 50px;
+    margin-inline: 20px;
+    display: flex;
+    /* background-color: red; */
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.button{
+    width: 100px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: greenyellow;
+    border-radius: 10px;
+}
+
+ 
