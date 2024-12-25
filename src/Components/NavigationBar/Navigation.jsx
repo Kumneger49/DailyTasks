@@ -5,7 +5,7 @@ import "./Navigation.css"
 
 const Navigation=props=>{
  
-    const {authenticated, handleLogin, handleLogout, handleShowInput, showInput}=props;
+    const {authenticated, handleShowSignUpForm, handleLogout, handleShowLoginForm}=props;
 
     if(authenticated===true){
         return(
@@ -27,8 +27,8 @@ const Navigation=props=>{
                 <div className="main-navigation">
                    <h1 className="brand">DailyTasks</h1>
                    <div className="buttons-class">
-                   <button className="button" onClick={handleShowInput}><Buttons type="login"/></button>
-                   <button className="button"><Buttons type="signup"/></button>
+                   <button className="button" onClick={handleShowLoginForm}><Buttons type="login"/></button>
+                   <button className="button" onClick={handleShowSignUpForm}><Buttons type="signup"/></button>
                    </div>
                </div>
             </div>

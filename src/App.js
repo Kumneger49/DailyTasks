@@ -6,41 +6,49 @@ import React, { useState, useEffect } from 'react'
  
 function App() {
   const [authenticated, setAuthenticated] = useState(false)
-  const [showInput, setShowInput] = useState(false)
+  const [showSignUpForm, setShowSignUpForm] = useState(false); 
+  const [showLoginForm, setShowLoginForm] = useState(false)
   const [userExist, setUserExist] = useState(true)
   const [passwordCorrect, setPasswordCorrect] = useState(true)
   const [newUser, setNewUser]= useState({})
-  
-  const users=[
-    {
-        name: "ken",
-        password: 1
-    },
-    {
-        name: "mark",
-        password: 2
-    }
-    ]
 
-  const handleLogin = () => {
-    setAuthenticated(true)
-  }
+  const [userss, setUserss] = useState([
+    {
+      name: "ken",
+      password: 1
+  },
+  {
+      name: "mark",
+      password: 2
+  } 
+  ])
+
+
+  // const handleLogin = () => {
+  //   setAuthenticated(true)
+  // }
 
   const handleLogout = () => {
     setAuthenticated(false)
-    setShowInput(false)
+    setShowLoginForm(false)
   }
 
-  const handleShowInput = () => {
-    console.log("Setting showInput to true"); //  for debugging
-    setShowInput(true)
+  const handleShowLoginForm = () => {
+    setShowLoginForm(true)
+    setShowSignUpForm(false);
+  }
+
+  const handleShowSignUpForm=()=>{
+    setShowSignUpForm(true);
+    setShowLoginForm(false);
+    setUserExist(true);
   }
 
   const handleLoginSaveButtonClick=(user)=>{
-    const foundUser=users.find((u)=>u.name.toLocaleLowerCase()===user.name.toLocaleLowerCase()) 
+    const foundUser=userss.find((u)=>u.name.toLocaleLowerCase()===user.name.toLocaleLowerCase()) 
     setNewUser(foundUser||{})
     if(foundUser){
-      if(foundUser.password===user.password){
+      if(foundUser.password==user.password){
       setAuthenticated(true)
       setUserExist(true)
       setPasswordCorrect(true)
@@ -52,26 +60,33 @@ function App() {
     }
 
     else{
-      console.log("Error the user does not exist")
       setUserExist(false)
     }
-    console.log(newUser)
+   }
+
+  const handleSignUpSaveButtonClick=(user)=>{
+    let u=userss;
+    u=u.concat(user);
+    setUserss(u);
+    setNewUser(user);
+    setAuthenticated(true);
   }
 
   return (
     <div>
       <Navigation 
         authenticated={authenticated} 
-        handleLogin={handleLogin} 
-        handleShowInput={handleShowInput} 
+        // handleLogin={handleLogin} 
+        handleShowLoginForm={handleShowLoginForm} 
         handleLogout={handleLogout} 
-        showInput={showInput}
-        
+        handleShowSignUpForm={handleShowSignUpForm}
       />
       <Body 
         handleLoginSaveButtonClick={handleLoginSaveButtonClick} 
+        handleSignUpSaveButtonClick={handleSignUpSaveButtonClick}
         authenticated={authenticated} 
-        showInput={showInput} 
+        showLoginForm={showLoginForm} 
+        showSignUpForm={showSignUpForm}
         userExist={userExist}
         passwordCorrect={passwordCorrect}
         user={newUser.name}

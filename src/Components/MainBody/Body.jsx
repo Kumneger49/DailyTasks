@@ -1,15 +1,14 @@
 import React from "react";
 
 import Login from "../Authenticate/Login";
+import SignUp from "../SignUp/SignUp";
 import "./Body.css"
 
 import Tasks from "./Tasks";
 import userEvent from "@testing-library/user-event";
 
 const Body=props=>{
-   const {authenticated, showInput, handleLoginSaveButtonClick, userExist, passwordCorrect, user}=props;
-   console.log("Body rendering, showInput:", showInput); //  for debugging
-
+   const {authenticated, showLoginForm, showSignUpForm, handleLoginSaveButtonClick, handleSignUpSaveButtonClick, userExist, passwordCorrect, user}=props;
    if(authenticated){
    return (
    <div className="body">
@@ -17,16 +16,23 @@ const Body=props=>{
         <Tasks/>
    </div> 
    )
-}
-else{
-   return(
-      <div className="body">
-      
-      {showInput ? <Login handleLoginSaveButtonClick={handleLoginSaveButtonClick} userExist={userExist} passwordCorrect={passwordCorrect} /> : <h1>This is the main body. Create an account to get started with the app.</h1>}
-       
-  </div> 
-   
-   )
+   }
+   else{
+      if(showSignUpForm==false){
+      return(
+         <div className="body">
+            {showLoginForm ? <Login handleLoginSaveButtonClick={handleLoginSaveButtonClick} userExist={userExist} passwordCorrect={passwordCorrect} /> : <h1>This is the main body. Create an account to get started with the app.</h1>}
+         </div> 
+      )
+   }
+
+   else{
+      return(
+         <div className="body">
+            <SignUp handleSignUpSaveButtonClick={handleSignUpSaveButtonClick}/>
+         </div> 
+      )
+   }
 }
 }
 
