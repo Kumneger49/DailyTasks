@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# DailyTasks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+DailyTasks is a web application designed to help users manage their daily activities efficiently. The application features a dynamic navigation bar and main content area that adapt based on the user's authentication status.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Dynamic Navigation Bar**: The navigation bar updates to display different options depending on whether the user is logged in, signed up, or neither.
+- **Adaptive Main Content**: The main body of the application changes its content based on the user's authentication status, providing a personalized experience.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Clone the Repository**:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   git clone https://github.com/Kumneger49/DailyTasks.git
+2. **Navigate to the Project Directory:
 
-### `npm test`
+  Copy code
+  cd DailyTasks
+3. **Install Dependencies: Ensure you have Node.js installed, then run:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  Copy code
+  npm install
+4. **Start the Application:
 
-### `npm run build`
+Copy code
+npm start
+## Usage
+1. **Access the Application: Once the server is running, navigate to:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Copy code
+http://localhost:3000
+2. **Authentication: Depending on your authentication status, the navigation bar and main content will adjust accordingly:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Not Logged In: You'll see options to log in or sign up.
+- Logged In: You'll have access to your daily tasks and additional features.
+## Contributing
+1. **Fork the Repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+git fork https://github.com/Kumneger49/DailyTasks.git
+2. **Clone Your Fork:
+git clone https://github.com/your-username/DailyTasks.git
+3. **Create a New Branch:
 
-### `npm run eject`
+git checkout -b feature-name
+4. **Make Your Changes: Implement your feature or fix.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. **Commit Your Changes:
+   
+git commit -m "Add feature: feature description"
+6. **Push to Your Fork:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+git push origin feature-name
+7. **Submit a Pull Request: Navigate to the original repository and click the 'New Pull Request' button to submit your changes for review.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+For any inquiries or feedback, please contact:
+Kumneger49
+ 
