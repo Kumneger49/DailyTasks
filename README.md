@@ -12,10 +12,12 @@ DailyTasks is a web application designed to help users manage their daily activi
 1. **Clone the Repository**:
 
    git clone https://github.com/Kumneger49/DailyTasks.git
-2. **Navigate to the Project Directory:
+   
+3. **Navigate to the Project Directory:
 
   Copy code
   cd DailyTasks
+  
 3. **Install Dependencies: Ensure you have Node.js installed, then run:
 
   Copy code
@@ -24,6 +26,7 @@ DailyTasks is a web application designed to help users manage their daily activi
 
 Copy code
 npm start
+
 ## Usage
 1. **Access the Application: Once the server is running, navigate to:
 
@@ -37,19 +40,24 @@ http://localhost:3000
 1. **Fork the Repository:
 
 git fork https://github.com/Kumneger49/DailyTasks.git
+
 2. **Clone Your Fork:
 git clone https://github.com/your-username/DailyTasks.git
-3. **Create a New Branch:
+
+4. **Create a New Branch:
 
 git checkout -b feature-name
+
 4. **Make Your Changes: Implement your feature or fix.
 
 5. **Commit Your Changes:
    
 git commit -m "Add feature: feature description"
+
 6. **Push to Your Fork:
 
 git push origin feature-name
+
 7. **Submit a Pull Request: Navigate to the original repository and click the 'New Pull Request' button to submit your changes for review.
 
 ## License
