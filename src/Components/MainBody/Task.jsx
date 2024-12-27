@@ -4,20 +4,20 @@ import React from "react";
 import "./Task.css";
 
 const Task=props=>{
-    const task=props.task;
-    const handleDeleteTask=props.handleDeleteTask;
+    const {task, handleDeleteTask}=props;
+    // const handleDeleteTask=props.handleDeleteTask;
     const id=props.id;
      return(
         <>
-              <ul className="tasks-list">
-                    <li className="tasks-element">
+              <div className="tasks-list">
+                    <div className="tasks-element">
                         {task.text}
-                    </li> 
+                    </div> 
                     <div className="edit-delete">
                     <div className="edit">Edit</div>
                     <div className="delete" onClick={()=>handleDeleteTask(id)}>Delete</div>
                 </div>     
-            </ul>
+            </div>
         </>
     )
 }

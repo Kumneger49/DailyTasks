@@ -15,26 +15,53 @@ function App() {
   const [userss, setUserss] = useState([
     {
       name: "ken",
-      password: 1
+      password: 1,
+      tasks: [
+        {text: "doing home work", id: 1},
+        {text: "doing laundry", id: 2},
+        {text: "sleep", id: 3},
+      ]
   },
   {
       name: "mark",
-      password: 2
+      password: 2,
+      tasks:[
+        {text: "eat breakfast", id: 1}, 
+        {text: "eact lunch", id: 2},
+        {text: "go to work", id: 3}
+      ]
   } 
   ])
 
+  const [currentTasks, setCurrentTasks]=useState([]);
+  const [id, setId]=useState(4)
+  const handleDeleteTask=(id)=>{
+    setCurrentTasks(currentTasks.filter(
+        (task)=>{
+            return (task.id!==id)
+        }
+    ))
+}
 
-  // const handleLogin = () => {
-  //   setAuthenticated(true)
-  // }
+   const handleAddTask=(newText)=>{
+      const obj={
+          text: newText,
+          id: id
+      }
+      setCurrentTasks( 
+          [...currentTasks, obj]
+      )
+      setId(id+1)
+  }
+  
 
   const handleLogout = () => {
-    setAuthenticated(false)
-    setShowLoginForm(false)
+    setAuthenticated(false);
+    setShowLoginForm(false);
   }
 
   const handleShowLoginForm = () => {
-    setShowLoginForm(true)
+    setShowLoginForm(true);
     setShowSignUpForm(false);
   }
 
@@ -43,6 +70,13 @@ function App() {
     setShowLoginForm(false);
     setUserExist(true);
   }
+
+ useEffect(()=>{
+  if(newUser&&newUser.tasks){
+  setCurrentTasks(newUser.tasks);
+  }
+ }, [newUser])
+  
 
   const handleLoginSaveButtonClick=(user)=>{
     const foundUser=userss.find((u)=>u.name.toLocaleLowerCase()===user.name.toLocaleLowerCase()) 
@@ -90,6 +124,9 @@ function App() {
         userExist={userExist}
         passwordCorrect={passwordCorrect}
         user={newUser.name}
+        currentTasks={currentTasks}
+        handleDeleteTask={handleDeleteTask}
+        handleAddTask={handleAddTask}
       />
 
     </div>

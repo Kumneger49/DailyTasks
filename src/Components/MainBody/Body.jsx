@@ -8,12 +8,12 @@ import Tasks from "./Tasks";
 import userEvent from "@testing-library/user-event";
 
 const Body=props=>{
-   const {authenticated, showLoginForm, showSignUpForm, handleLoginSaveButtonClick, handleSignUpSaveButtonClick, userExist, passwordCorrect, user}=props;
+   const {authenticated, showLoginForm, showSignUpForm, handleLoginSaveButtonClick, handleSignUpSaveButtonClick, userExist, passwordCorrect, user, currentTasks, handleDeleteTask, handleAddTask}=props;
    if(authenticated){
    return (
    <div className="body">
         <h1 className="header-text"><h2>Welcome <span style={{color: "green"}}>{user.replace(/\b\w/g, char=>char.toUpperCase())}</span></h2>Tasks are ordered by the the time you wanted them to do:</h1>
-        <Tasks/>
+        <Tasks currentTasks={currentTasks} handleDeleteTask={handleDeleteTask} handleAddTask={handleAddTask}/>
    </div> 
    )
    }
