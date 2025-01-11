@@ -6,7 +6,7 @@ import Task from "./Task";
 
 const Tasks=props=>{
  
-    const {currentTasks, handleDeleteTask, handleAddTask}=props;
+    const {currentTasks, handleDeleteTask, handleAddTask, userId}=props;
     const [addTask, setAddTask]=useState(false)
     const [newTask, setNewTask]=useState("")
 
@@ -17,7 +17,7 @@ const Tasks=props=>{
 
     const handleAddingTask=(event)=>{
         event.preventDefault();
-        handleAddTask(newTask);
+        handleAddTask(newTask, userId);
         setAddTask(false);
         setNewTask("")
     }
@@ -35,10 +35,10 @@ const Tasks=props=>{
         <div class="main-tasks-class">
             {/* <h1>lkdjalkj</h1> */}
             <ul>
-                {currentTasks.length!=0?currentTasks.map(
+                {currentTasks.length>0?currentTasks.map(
                     (task)=>(
                         <li key={task.id} >
-                            <Task task={task} id={task.id} handleDeleteTask={handleDeleteTask}/>
+                            <Task task={task} id={task.id} userId={userId} handleDeleteTask={handleDeleteTask}/>
                         </li>
                     )
                 ):<h1>There is no task to do</h1>

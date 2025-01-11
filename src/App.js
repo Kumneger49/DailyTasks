@@ -11,11 +11,11 @@ function App() {
   const [userExist, setUserExist] = useState(true)
   const [passwordCorrect, setPasswordCorrect] = useState(true)
   const [newUser, setNewUser]= useState({})
-
   const [userss, setUserss] = useState([
     {
       name: "ken",
       password: 1,
+      id: 1,
       tasks: [
         {text: "doing home work", id: 1},
         {text: "doing laundry", id: 2},
@@ -25,6 +25,7 @@ function App() {
   {
       name: "mark",
       password: 2,
+      id: 2,
       tasks:[
         {text: "eat breakfast", id: 1}, 
         {text: "eact lunch", id: 2},
@@ -33,24 +34,43 @@ function App() {
   } 
   ])
 
-  const [currentTasks, setCurrentTasks]=useState([]);
+  // const [currentTasks, setCurrentTasks]=useState([]);
   const [id, setId]=useState(4)
-  const handleDeleteTask=(id)=>{
-    setCurrentTasks(currentTasks.filter(
-        (task)=>{
-            return (task.id!==id)
-        }
-    ))
+
+  const handleDeleteTask=(id, userId)=>{
+    // setCurrentTasks(prevTasks=>prevTasks.filter(task=>task.id!==id))
+    setUserss(prevUsers=>{
+        const newusers=prevUsers.map(user=>user.id===userId?{...user, tasks: user.tasks.filter(task=>task.id!=id)}:user)
+        setNewUser(newusers.find(user=>user.id==userId))
+        return newusers;
+    }
+    )
+
+    
 }
 
-   const handleAddTask=(newText)=>{
-      const obj={
+   const handleAddTask=(newText, newId)=>{
+    
+      const newTask={
           text: newText,
           id: id
       }
-      setCurrentTasks( 
-          [...currentTasks, obj]
-      )
+
+      setUserss(prevUsers=>{
+        const newusers=prevUsers.map(user=>user.id==newId?{...user, tasks: [...user.tasks, newTask]}:user)
+        setNewUser(newusers.find(user=>user.id===newId))
+        return newusers;
+    }
+    )
+
+      
+      console.log(newUser.tasks)
+      // =u.tasks;
+
+      // setCurrentTasks((prevTasks)=>
+      //     [...prevTasks, obj]
+      // )
+      // console.log(currentTasks)
       setId(id+1)
   }
   
@@ -71,15 +91,16 @@ function App() {
     setUserExist(true);
   }
 
- useEffect(()=>{
-  if(newUser&&newUser.tasks){
-  setCurrentTasks(newUser.tasks);
-  }
- }, [newUser])
+//  useEffect(()=>{
+//   if(newUser&&newUser.tasks){
+//   setCurrentTasks(newUser.tasks);
+//   }
+//  }, [newUser])
   
 
   const handleLoginSaveButtonClick=(user)=>{
-    const foundUser=userss.find((u)=>u.name.toLocaleLowerCase()===user.name.toLocaleLowerCase()) 
+    const foundUser=userss.find((u)=>u.name.toLocaleLowerCase()===user.name.toLocaleLowerCase())
+    // console.log(foundUser.id) 
     setNewUser(foundUser||{})
     if(foundUser){
       if(foundUser.password==user.password){
@@ -99,9 +120,7 @@ function App() {
    }
 
   const handleSignUpSaveButtonClick=(user)=>{
-    let u=userss;
-    u=u.concat(user);
-    setUserss(u);
+    setUserss(prevUserss=>[...prevUserss, user]);
     setNewUser(user);
     setAuthenticated(true);
   }
@@ -124,7 +143,8 @@ function App() {
         userExist={userExist}
         passwordCorrect={passwordCorrect}
         user={newUser.name}
-        currentTasks={currentTasks}
+        id={newUser.id}
+        currentTasks={newUser.tasks}
         handleDeleteTask={handleDeleteTask}
         handleAddTask={handleAddTask}
       />

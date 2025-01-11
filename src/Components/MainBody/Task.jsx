@@ -4,9 +4,8 @@ import React from "react";
 import "./Task.css";
 
 const Task=props=>{
-    const {task, handleDeleteTask}=props;
+    const {task, handleDeleteTask, id, userId}=props;
     // const handleDeleteTask=props.handleDeleteTask;
-    const id=props.id;
      return(
         <>
               <div className="tasks-list">
@@ -15,7 +14,7 @@ const Task=props=>{
                     </div> 
                     <div className="edit-delete">
                     <div className="edit">Edit</div>
-                    <div className="delete" onClick={()=>handleDeleteTask(id)}>Delete</div>
+                    <div className="delete" onClick={()=>handleDeleteTask(id, userId)}>Delete</div>
                 </div>     
             </div>
         </>
